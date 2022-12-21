@@ -9,6 +9,7 @@ function Hero() {
   const [toAddress, settoAddress] = useState("");
   const [amount, setamount] = useState(0);
 
+
   const transfer = async () => {
     try {
       if (provider) {
@@ -17,7 +18,7 @@ function Hero() {
 
         console.log("Going to pop wallet now to pay gas...");
 
-        let Txn = await connectedContract.transfer(toAddress, amount, { gasLimit: 100000 });
+        let Txn = await connectedContract.transfer(toAddress, ethers.utils.parseEther(amount), { gasLimit: 100000 });
 
         console.log("Mining...please wait.");
         await Txn.wait();
