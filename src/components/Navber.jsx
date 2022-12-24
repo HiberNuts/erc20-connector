@@ -7,7 +7,7 @@ const Navber = () => {
   const { activate, deactivate, account, active, chainId } = useWeb3React();
   console.log(active);
   return (
-    <nav className="w-full flex md:justify-center justify-between items-center p-7">
+    <nav className="w-full flex md:justify-center justify-between items-center py-20">
       <h1></h1>
       <div className="md: flex-initial justify-between  blue-glassmorphism">
         <div
@@ -31,8 +31,11 @@ const Navber = () => {
             Connect
           </li>
         )}
-
-        <button onClick={deactivate}>Disconnect</button>
+        {active && (
+          <button className="ml-10" onClick={deactivate}>
+            Disconnect
+          </button>
+        )}
       </ul>
     </nav>
   );
